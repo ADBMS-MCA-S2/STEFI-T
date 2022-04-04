@@ -25,6 +25,7 @@ select count(emp_no) from tbl_emp;
 select distinct count(emp_name) from tbl_emp;
 SELECT COUNT(DISTINCT emp_name) FROM tbl_emp;
 select emp_name,sum(salary) from tbl_emp group by emp_name;
+select sum(salary),emp_name,count(emp_name) as occurence from tbl_emp group by emp_name;
 select sum(salary) from tbl_emp where salary>120000;
 select emp_name from tbl_emp order by emp_name desc;
 select * from tbl_emp where (emp_name='Amit' and salary>50000);
