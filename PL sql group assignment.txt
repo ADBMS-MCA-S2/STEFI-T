@@ -37,16 +37,16 @@ DECLARE
     levels varchar(45);
  
 if (experience > 0 && experience<5)
-    then set levels = 'beg';
+    then set levels = 'beginner';
     insert into employe(emp_id,experience,salary,levels) values(emp_id,experience,salary,levels);
     end if;
     if( exp>=6 && exp <10)
-    then set levels = 'int';
+    then set levels = 'intermediate';
 
      insert into employe(emp_id,experience,salary,levels) values(emp_id,experience,salary,levels);
     end if;
     if (exp >= 10)
-    then set levels = 'advan';
+    then set levels = 'Experienced';
     
     insert into employe(emp_id,experience,salary,levels) values(emp_id,experience,salary,levels);
     end if;
