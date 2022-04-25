@@ -1,0 +1,8 @@
+CREATE DEFINER=`root`@`localhost` TRIGGER `students`.`student_AFTER_INSERT` AFTER INSERT ON `student` FOR EACH ROW
+BEGIN
+declare total varchar(10);
+declare perc varchar(10);
+set total=new.sub1+new.sub2+new.sub3;
+set perc=((total/300)*100);
+insert into result values(new.rollno,new.studname,total,perc);
+END

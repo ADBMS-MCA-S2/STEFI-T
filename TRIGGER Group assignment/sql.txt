@@ -1,0 +1,13 @@
+create database students;
+use students;
+create table student(rollno varchar(10) primary key,studname varchar(10),sub1 varchar(10),sub2 varchar(10),sub3 varchar(10));
+create table result(rollno varchar(10),studname varchar(10),total_marks varchar(10),percentage varchar(10));
+insert into student values("1","abhi","35","55","85"),
+("2","adarsh","15","60","10"),
+("3","anu","96","99","94");
+
+insert into student values(8,"jain",67,90,76);
+insert into student values(10,"bini",60,96,50);
+select * from student;
+
+select * from result;
