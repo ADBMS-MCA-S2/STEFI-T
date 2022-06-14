@@ -1,0 +1,27 @@
+
+> db.empl.insert({emp_id:'101',name:'anu',salary:'50000',role:'msd'});
+
+> db.empl.insert({emp_id:'102',name:'manoj',salary:'45000',role:'wk'});
+
+> db.empl.insert({emp_id:'103',name:'sanoj',salary:'15000',role:'mob'});
+
+> db.empl.insert({emp_id:'104',name:'edvik',salary:'95000',role:'ob'});
+
+> db.empl.insert({emp_id:'105',name:'remya',salary:'55000',role:'c'});
+
+> db.empl.insert({emp_id:'106',name:'sujith',salary:'15000',role:'mob'});
+
+db.empl.insert({emp_id:'107',name:'sneha',salary:'35000',role:'cl'});
+
+1)db.empl.find().pretty();
+2)db.em.update({name:'sneha'},{$inc:{salary:8000}})
+3)db.em.updateMany({},{$inc:{salary:4000}})
+4)db.em.update({name:'msd'},{$set:{role:"c and wk"}})
+5)db.em.update({name:'remya'},{$set:{remark:"wc"}})
+7)db.em.find({name:{$regex:'^s'}})
+8)db.em.find({name:{$regex:'k$'}})
+9)db.em.find({name:{$regex:'s'}})
+10)db.em.find().limit(1).sort({salary:1})
+ db.em.find().limit(1).sort({salary:-1})
+11)db.em.find({$or:[{role:'ob'},{role:'mob'}]})
+12)db.em.find({$nor:{role:'ob'},{role:'mob'}})
