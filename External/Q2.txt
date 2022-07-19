@@ -1,0 +1,98 @@
+use exam;
+db.createCollection("students");
+> db.students.insert({id:1,name:"Anjali",place:"Kollam",phone:8582639562,vaccination_status:"both vaccinated",RTPCR:"negative",lab_mark:{internal:30,external:45},department:"MCA"});
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({id:2,name:"Anuradha",place:"varkala",phone:9992639562,vaccination_status:"both vaccinated",RTPCR:"negative",lab_mark:{internal:40,external:48},department:"civil"});
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({id:3,name:"Bismiya",place:"Kollam",phone:944663952,vaccination_status:"notvaccinated",RTPCR:"positive",lab_mark:{internal:50,external:39},department:"MCA"});
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({id:4,name:"Vimal",place:"Ernakulam",phone:8582639568,vaccination_status:"firstdoseonly",RTPCR:"positive",lab_mark:{internal:40,external:42},department:"civil"});
+WriteResult({ "nInserted" : 1 })
+> db.students.insert({id:5,name:"Vivek",place:"Kollam",phone:8582639777,vaccination_status:"both vaccinated",RTPCR:"negative",lab_mark:{internal:50,external:50},department:"MCA"});
+
+ db.students.find().pretty();
+{
+        "_id" : ObjectId("62d641d47358aa67585ad09d"),
+        "id" : 1,
+        "name" : "Anjali",
+        "place" : "Kollam",
+        "phone" : 8582639562,
+        "vaccination_status" : "both vaccinated",
+        "RTPCR" : "negative",
+        "lab_mark" : {
+                "internal" : 30,
+                "external" : 45
+        },
+        "department" : "MCA"
+}
+{
+        "_id" : ObjectId("62d641fc7358aa67585ad09e"),
+        "id" : 2,
+        "name" : "Anuradha",
+        "place" : "varkala",
+        "phone" : 9992639562,
+        "vaccination_status" : "both vaccinated",
+        "RTPCR" : "negative",
+        "lab_mark" : {
+                "internal" : 40,
+                "external" : 48
+        },
+        "department" : "civil"
+}
+{
+        "_id" : ObjectId("62d6421e7358aa67585ad09f"),
+        "id" : 3,
+        "name" : "Bismiya",
+        "place" : "Kollam",
+        "phone" : 944663952,
+        "vaccination_status" : "notvaccinated",
+        "RTPCR" : "positive",
+        "lab_mark" : {
+                "internal" : 50,
+                "external" : 39
+        },
+        "department" : "MCA"
+}
+{
+        "_id" : ObjectId("62d642467358aa67585ad0a0"),
+        "id" : 4,
+        "name" : "Vimal",
+        "place" : "Ernakulam",
+        "phone" : 8582639568,
+        "vaccination_status" : "firstdoseonly",
+        "RTPCR" : "positive",
+        "lab_mark" : {
+                "internal" : 40,
+                "external" : 42
+        },
+        "department" : "civil"
+}
+{
+        "_id" : ObjectId("62d6426c7358aa67585ad0a1"),
+        "id" : 5,
+        "name" : "Vivek",
+        "place" : "Kollam",
+        "phone" : 8582639777,
+        "vaccination_status" : "both vaccinated",
+        "RTPCR" : "negative",
+        "lab_mark" : {
+                "internal" : 50,
+                "external" : 50
+        },
+        "department" : "MCA"
+}
+
+
+3)///
+db.students.find({vaccination_status:"notvaccinated"}).count();
+1
+
+4)///
+ db.students.find({department:"MCA"},{name:1,_id:0,phone:1}).sort({"lab_mark.external":-1})
+{ "name" : "Vivek", "phone" : 8582639777 }
+{ "name" : "Anjali", "phone" : 8582639562 }
+{ "name" : "Bismiya", "phone" : 944663952 }
+
+5)///
+ db.students.updateOne({id:4},{$set:{vaccination_status:"both vaccinated"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 0 }
